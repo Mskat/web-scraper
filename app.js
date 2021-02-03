@@ -22,11 +22,11 @@ prompt.start();
 prompt.get(validation, function (err, result) {
     if (err) { return onErr(err); }
     let email = result.email;
-    passEmailAddress(email);
+    findWebsite(email);
 });
 
 //method finds a website by given email address
-function passEmailAddress(email) {
+function findWebsite(email) {
     let domain = "https://www." + email.substring(email.lastIndexOf("@") + 1);
     console.log(domain);
 };
