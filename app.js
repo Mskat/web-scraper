@@ -18,9 +18,19 @@ let validation = {
 
 prompt.start();
 
-//method getting an email address from the user
+//method gets an email address from the user
 prompt.get(validation, function (err, result) {
     if (err) { return onErr(err); }
-    console.log('Received email: ' + result.email);
+    let email = result.email;
+    passEmailAddress(email);
 });
+
+//method finds a website by given email address
+function passEmailAddress(email) {
+    let domain = "https://www." + email.substring(email.lastIndexOf("@") + 1);
+    console.log(domain);
+};
+
+
+
 
