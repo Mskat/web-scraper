@@ -5,5 +5,10 @@
   "main": "app.js",
   "author": {
     "name": ""
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.5",
+    "knwl.js": "^1.0.2",
+    "require": "^2.4.20"
   }
 }
