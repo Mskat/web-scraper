@@ -1,0 +1,9 @@
+{
+  "name": "web-scraper",
+  "version": "0.0.0",
+  "description": "web-scraper",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  }
+}
