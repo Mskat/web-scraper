@@ -31,7 +31,7 @@ function findWebsite(email) {
     scrapeWebsite(url);
 };
 
-
+//method scrapes a website
 function scrapeWebsite(url) {
     request(domain, (error, response, html) => {
         if (!error && response.statusCode == 200) {
