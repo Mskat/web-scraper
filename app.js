@@ -28,9 +28,17 @@ prompt.get(validation, function (err, result) {
 //method finds a website by given email address
 function findWebsite(email) {
     let domain = "https://www." + email.substring(email.lastIndexOf("@") + 1);
-    console.log(domain);
+    scrapeWebsite(domain);
 };
 
 
+function scrapeWebsite(domain) {
+    request(domain, (error, response, html) => {
+        if (!error && response.statusCode == 200) {
+            const $ = cheerio.load(html);
+            const contatData = $('.col-md-5');
 
-
+            console.log(contatData.text());
+        }
+    });
+};
