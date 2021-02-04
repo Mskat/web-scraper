@@ -27,12 +27,12 @@ prompt.get(validation, function (err, result) {
 
 //method finds a website by given email address
 function findWebsite(email) {
-    let domain = "https://www." + email.substring(email.lastIndexOf("@") + 1);
-    scrapeWebsite(domain);
+    let url = "https://www." + email.substring(email.lastIndexOf("@") + 1);
+    scrapeWebsite(url);
 };
 
 
-function scrapeWebsite(domain) {
+function scrapeWebsite(url) {
     request(domain, (error, response, html) => {
         if (!error && response.statusCode == 200) {
             const $ = cheerio.load(html);
