@@ -2,8 +2,10 @@
 
 const request = require('request');
 const cheerio = require('cheerio');
-const knwl = require('knwl.js');
+const Knwl = require('knwl.js');
 const prompt = require('prompt');
+
+let knwlInstance = new Knwl();
 
 //email validation
 let validation = {
@@ -33,12 +35,19 @@ function findWebsite(email) {
 
 //method scrapes a website
 function scrapeWebsite(url) {
-    request(domain, (error, response, html) => {
+    request(url, (error, response, html) => {
         if (!error && response.statusCode == 200) {
             const $ = cheerio.load(html);
-            const contatData = $('.col-md-5');
-
-            console.log(contatData.text());
-        }
+            let links = $('a');
+            //method checks if the link contains an email
+            $(links).each(function (i, link) {
+                let str = $(link).text();
+                if (str.includes('@')) {
+                    knwlInstance.init(str);
+                    let emails = knwlInstance.get('emails');
+                    console.log(emails);
+                }
+            });
+        };
     });
 };
