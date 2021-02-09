@@ -42,12 +42,16 @@ function scrapeWebsite(url) {
             //method checks if the link contains an email
             $(links).each(function (i, link) {
                 let str = $(link).text();
-                if (str.includes('@')) {
-                    knwlInstance.init(str);
-                    let emails = knwlInstance.get('emails');
+                knwlInstance.init(str);
+                let emails = knwlInstance.get('emails');
+                if (!isEmpty(emails)) {
                     console.log(emails);
                 }
             });
         };
     });
 };
+
+function isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
