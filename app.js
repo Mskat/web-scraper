@@ -39,19 +39,10 @@ function scrapeWebsite(url) {
         if (!error && response.statusCode == 200) {
             const $ = cheerio.load(html);
             let links = $('a');
-            //method checks if the link contains an email
-            $(links).each(function (i, link) {
-                let str = $(link).text();
-                knwlInstance.init(str);
-                let emails = knwlInstance.get('emails');
-                if (!isEmpty(emails)) {
-                    console.log(emails);
-                }
-            });
+            knwlInstance.init(links);
+            let emails = knwlInstance.get('emails');
+            console.log(emails);
         };
     });
 };
 
-function isEmpty(obj) {
-    return Object.keys(obj).length === 0;
-}
