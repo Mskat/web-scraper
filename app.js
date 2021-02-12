@@ -44,6 +44,8 @@ function scrapeWebsite(url) {
             console.log(findEmails(links));
             console.log('PHONES: \n');
             console.log(findPhones(divTags));
+            console.log('PLACES: \n');
+            console.log(findPlaces(divTags));
         };
     });
 };
