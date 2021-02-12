@@ -1,4 +1,4 @@
-# web-scraper
+# Web Scraper
 Web Scraper is a Javascript application that finds emails, phones and places by given address email.
 
  ## Table of Contents
