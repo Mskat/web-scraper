@@ -39,10 +39,30 @@ function scrapeWebsite(url) {
         if (!error && response.statusCode == 200) {
             const $ = cheerio.load(html);
             let links = $('a');
-            knwlInstance.init(links);
-            let emails = knwlInstance.get('emails');
-            console.log(emails);
+            let paragraphs = $('p');
+            console.log('EMAILS: \n');
+            console.log(findEmails(links));
+            console.log('PHONES: \n');
+            console.log(findPhones(paragraphs));
         };
     });
+};
+
+function findEmails(content) {
+    knwlInstance.init(content);
+    let emails = knwlInstance.get('emails');
+    return emails;
+};
+
+function findPhones(content) {
+    knwlInstance.init(content);
+    let phones = knwlInstance.get('phones');
+    return phones;
+};
+
+function findPlaces(content) {
+    knwlInstance.init(content);
+    let places = knwlInstance.get('places');
+    return places;
 };
 
