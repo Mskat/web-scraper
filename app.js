@@ -39,11 +39,11 @@ function scrapeWebsite(url) {
         if (!error && response.statusCode == 200) {
             const $ = cheerio.load(html);
             let links = $('a');
-            let paragraphs = $('p');
+            let divTags = $('div');
             console.log('EMAILS: \n');
             console.log(findEmails(links));
             console.log('PHONES: \n');
-            console.log(findPhones(paragraphs));
+            console.log(findPhones(divTags));
         };
     });
 };
