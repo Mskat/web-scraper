@@ -40,11 +40,11 @@ function scrapeWebsite(url) {
             const $ = cheerio.load(html);
             let links = $('a');
             let divTags = $('div');
-            console.log('EMAILS: \n');
+            console.log('EMAILS:');
             console.log(findEmails(links));
-            console.log('PHONES: \n');
+            console.log('\nPHONES:');
             console.log(findPhones(divTags));
-            console.log('PLACES: \n');
+            console.log('\nPLACES:');
             console.log(findPlaces(divTags));
         };
     });
